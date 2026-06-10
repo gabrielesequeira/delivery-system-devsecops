@@ -15,7 +15,7 @@ O projeto foi desenvolvido a partir da adaptação de um sistema de gerenciament
 
 ## Funcionalidades
 
-### 🔐 Autenticação e Controle de Acesso
+### - Autenticação e Controle de Acesso
 
 - Cadastro de usuários
 - Login e logout
@@ -23,7 +23,7 @@ O projeto foi desenvolvido a partir da adaptação de um sistema de gerenciament
 - Senhas armazenadas utilizando hash BCrypt
 - Acesso restrito a usuários autenticados
 
-### 📦 Gerenciamento de Pedidos
+### - Gerenciamento de Pedidos
 
 - Criar pedidos
 - Visualizar pedidos
@@ -31,7 +31,7 @@ O projeto foi desenvolvido a partir da adaptação de um sistema de gerenciament
 - Excluir pedidos
 - Controle de propriedade dos pedidos por usuário
 
-### 📋 Auditoria e Logs
+### - Auditoria e Logs
 
 - Registro de login bem-sucedido
 - Registro de falhas de autenticação
@@ -44,7 +44,7 @@ O projeto foi desenvolvido a partir da adaptação de um sistema de gerenciament
 
 ## Tecnologias Utilizadas
 
-### Back-end
+### - Back-end
 
 - Python
 - Flask
@@ -54,14 +54,14 @@ O projeto foi desenvolvido a partir da adaptação de um sistema de gerenciament
 - SQLite
 - BCrypt
 
-### Front-end
+### - Front-end
 
 - HTML
 - CSS
 - Bootstrap
 - JavaScript
 
-### DevOps e Segurança
+### - DevOps e DevSecops (segurança)
 
 - Docker
 - Git
@@ -81,7 +81,6 @@ todo_project/
 ├── Dockerfile
 ├── requirements.txt
 ├── run.py
-├── reset_db.py
 │
 └── todo_project/
     ├── __init__.py
