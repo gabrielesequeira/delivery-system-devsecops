@@ -1,97 +1,199 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
 
-  {% if title %}
-  <title>To-Do - {{ title }}</title>
-  {% else %}
-  <title>To-Do App</title>
-  {% endif %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='main.css') }}">
+
+    {% if title %}
+        <title>Delivery System - {{ title }}</title>
+    {% else %}
+        <title>Delivery System</title>
+    {% endif %}
+
 </head>
 
 <body>
-  <header class="site-header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand mr-4" href="/">Task Manager</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
-          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarToggle">
-          <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
-          </div>
 
-          <!-- Navbar Right Side -->
-          <div class="navbar-nav">
+    <header class="site-header">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+            <div class="container">
+
+                <a class="navbar-brand mr-4"
+                   href="{{ url_for('about') }}">
+                    Delivery Manager
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarToggle"
+                        aria-controls="navbarToggle"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarToggle">
+
+                    <div class="navbar-nav mr-auto">
+
+                        <a class="nav-item nav-link"
+                           href="{{ url_for('about') }}">
+                            Sobre
+                        </a>
+
+                    </div>
+
+                    <div class="navbar-nav">
+
+                        {% if current_user.is_authenticated %}
+
+                            <li class="nav-item dropdown">
+
+                                <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   id="navbarDropdown"
+                                   role="button"
+                                   data-toggle="dropdown">
+
+                                    Olá, {{ current_user.username }}
+
+                                </a>
+
+                                <div class="dropdown-menu">
+
+                                    <a class="dropdown-item"
+                                       href="{{ url_for('account') }}">
+                                        Minha Conta
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a class="dropdown-item"
+                                       href="{{ url_for('logout') }}">
+                                        Logout
+                                    </a>
+
+                                </div>
+
+                            </li>
+
+                        {% else %}
+
+                            <a class="nav-item nav-link"
+                               href="{{ url_for('login') }}">
+                                Login
+                            </a>
+
+                            <a class="nav-item nav-link"
+                               href="{{ url_for('register') }}">
+                                Registrar
+                            </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main role="main" class="container" style="margin-top: 80px;">
+
+        <div class="row">
+
             {% if current_user.is_authenticated %}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Welcome {{ current_user.username }}!
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url_for('account') }}">Account Settings</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
-              </div>
-            </li>
+
+            <div class="col-md-4">
+
+                <div class="content-section">
+
+                    <h5>Pedidos</h5>
+
+                    <nav class="nav flex-column">
+
+                        <a class="nav-link"
+                           href="{{ url_for('add_order') }}">
+                            Novo Pedido
+                        </a>
+
+                        <a class="nav-link"
+                           href="{{ url_for('all_orders') }}">
+                            Meus Pedidos
+                        </a>
+
+                        <a class="nav-link"
+                           href="{{ url_for('account') }}">
+                            Minha Conta
+                        </a>
+
+                    </nav>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-8">
 
             {% else %}
-            <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-            <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+
+            <div class="col-md-12">
+
             {% endif %}
 
-          </div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+
+                    {% if messages %}
+
+                        {% for category, message in messages %}
+
+                            <div class="alert alert-{{ category }} alert-dismissible fade show">
+
+                                {{ message }}
+
+                                <button type="button"
+                                        class="close"
+                                        data-dismiss="alert">
+
+                                    <span>&times;</span>
+
+                                </button>
+
+                            </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                {% endwith %}
+
+                {% block content %}{% endblock %}
+
+            </div>
+
         </div>
-      </div>
-    </nav>
-  </header>
-  <main role="main" class="container">
-    <div class="row">
 
-      <!-- For Labels -->
-      <div class="col-md-4">
-        <div class="content-section">
-          <nav class="nav flex-column">
-            <a class="nav-link" href="{{url_for('add_task')}}">Add Task</a>
-            <a class="nav-link active" href="{{url_for('all_tasks')}}">View All Tasks</a>
-          </nav>
-        </div>
-      </div>
+    </main>
 
-      <div class="col-md-8">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        {% for category, message in messages %}
-        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-          {{ message }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-
-        {% block content %}{% endblock %}
-      </div>
-    </div>
-  </main>
-
-  <script src="{{ url_for('static', filename='bootstrap/js/slim.js') }}"></script>
-  <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>
-  <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/slim.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.js') }}"></script>
 
 </body>
 

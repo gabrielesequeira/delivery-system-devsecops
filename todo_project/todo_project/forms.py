@@ -1,12 +1,18 @@
 from flask_wtf import FlaskForm
 
 # Form Fields
-from wtforms import StringField, PasswordField, TextAreaField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, IntegerField
 
-# Form Validators for Form fields
-from wtforms.validators import DataRequired, EqualTo, Length, ValidationError
+# Validators
+from wtforms.validators import (
+    DataRequired,
+    EqualTo,
+    Length,
+    ValidationError,
+    NumberRange
+)
 
-# Import the User Database Model
+# Models
 from todo_project.models import User
 
 from flask_login import current_user
@@ -49,10 +55,16 @@ class UpdateUserPassword(FlaskForm):
     submit = SubmitField(label='Change password')
 
 
-class TaskForm(FlaskForm):
-    task_name = StringField(label='Task Description', validators=[DataRequired()])
-    submit = SubmitField(label='Add Task')
+class OrderForm(FlaskForm):
+    produto = StringField('Produto',validators=[DataRequired()])
+    quantidade = IntegerField('Quantidade',validators=[DataRequired()])
+    endereco = StringField('Endereço de Entrega',validators=[DataRequired()])
+    submit = SubmitField('Criar Pedido')
 
-class UpdateTaskForm(FlaskForm):
-    task_name = StringField(label='Update Task Description', validators=[DataRequired()])
-    submit = SubmitField(label='Save Changes')
+class UpdateOrderForm(FlaskForm):
+    produto = StringField('Produto',validators=[DataRequired()])
+    quantidade = IntegerField('Quantidade',validators=[DataRequired()])
+    endereco = StringField('Endereço de Entrega',validators=[DataRequired()])
+
+    status = StringField('Status',validators=[DataRequired()])
+    submit = SubmitField('Atualizar Pedido')

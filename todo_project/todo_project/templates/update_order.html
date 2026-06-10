@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="content-section">
+
+    <form method="POST">
+
+        {{ form.hidden_tag() }}
+
+        <fieldset class="form-group">
+
+            <legend class="border-bottom mb-4">
+
+                Atualizar Pedido
+
+            </legend>
+
+            <!-- Produto -->
+
+            <div class="form-group mb-3">
+
+                {{ form.produto.label(class="form-control-label") }}
+
+                {{ form.produto(class="form-control") }}
+
+            </div>
+
+            <!-- Quantidade -->
+
+            <div class="form-group mb-3">
+
+                {{ form.quantidade.label(class="form-control-label") }}
+
+                {{ form.quantidade(class="form-control") }}
+
+            </div>
+
+            <!-- Endereço -->
+
+            <div class="form-group mb-3">
+
+                {{ form.endereco.label(class="form-control-label") }}
+
+                {{ form.endereco(class="form-control") }}
+
+            </div>
+
+            <!-- Status -->
+
+            <div class="form-group mb-3">
+
+                {{ form.status.label(class="form-control-label") }}
+
+                {{ form.status(class="form-control") }}
+
+            </div>
+
+        </fieldset>
+
+        <div class="form-group">
+
+            {{ form.submit(class="btn btn-primary") }}
+
+            <a href="{{ url_for('all_orders') }}"
+               class="btn btn-secondary">
+
+                Cancelar
+
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

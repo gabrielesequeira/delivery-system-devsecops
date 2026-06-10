@@ -2,13 +2,131 @@
 
 {% block content %}
 
-<div class="content-section">
+<div class="card shadow-lg border-0">
 
-    <legend class="border-bottom mb-4">{{ title }}</legend>
+```
+<div class="card-body text-center p-5">
 
-    <p>
-        This Project is developed by <b><i>Aditya Bagad</i></b>
+    <h1 class="display-4 mb-3">
+        🚚 Delivery Manager
+    </h1>
+
+    <p class="lead text-muted">
+        Sistema de gerenciamento de pedidos desenvolvido com Flask,
+        SQLAlchemy e SQLite.
     </p>
+
+    <hr class="my-4">
+
+    <div class="row mt-4">
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card h-100 border-success">
+
+                <div class="card-body">
+
+                    <h3>🔐</h3>
+
+                    <h5>Segurança</h5>
+
+                    <p>
+                        Autenticação de usuários,
+                        criptografia de senhas e
+                        controle de acesso.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card h-100 border-primary">
+
+                <div class="card-body">
+
+                    <h3>📦</h3>
+
+                    <h5>Pedidos</h5>
+
+                    <p>
+                        Criação, consulta,
+                        atualização e exclusão
+                        de pedidos de delivery.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card h-100 border-warning">
+
+                <div class="card-body">
+
+                    <h3>📋</h3>
+
+                    <h5>Auditoria</h5>
+
+                    <p>
+                        Registro de logs de login,
+                        pedidos e eventos de segurança.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="my-4">
+
+    <h4 class="mb-3">
+        Tecnologias Utilizadas
+    </h4>
+
+    <div class="mb-4">
+
+        <span class="badge badge-primary p-2 m-1">Python</span>
+        <span class="badge badge-success p-2 m-1">Flask</span>
+        <span class="badge badge-info p-2 m-1">SQLAlchemy</span>
+        <span class="badge badge-secondary p-2 m-1">SQLite</span>
+        <span class="badge badge-dark p-2 m-1">Bootstrap</span>
+        <span class="badge badge-warning p-2 m-1">Docker</span>
+
+    </div>
+
+    {% if current_user.is_authenticated %}
+
+        <a href="{{ url_for('all_orders') }}"
+           class="btn btn-success btn-lg">
+
+            Ver Meus Pedidos
+
+        </a>
+
+    {% else %}
+
+        <a href="{{ url_for('login') }}"
+           class="btn btn-primary btn-lg">
+
+            Entrar no Sistema
+
+        </a>
+
+    {% endif %}
+
+</div>
+```
+
 </div>
 
 {% endblock %}

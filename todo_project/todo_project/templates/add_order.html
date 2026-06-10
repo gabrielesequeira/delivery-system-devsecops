@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="content-section">
+
+    <form method="POST">
+
+        {{ form.hidden_tag() }}
+
+        <fieldset class="form-group">
+
+            <legend class="border-bottom mb-4">
+
+                Novo Pedido
+
+            </legend>
+
+            <!-- Produto -->
+
+            <div class="form-group mb-3">
+
+                {{ form.produto.label(class="form-control-label") }}
+
+                {{ form.produto(class="form-control") }}
+
+            </div>
+
+            <!-- Quantidade -->
+
+            <div class="form-group mb-3">
+
+                {{ form.quantidade.label(class="form-control-label") }}
+
+                {{ form.quantidade(class="form-control") }}
+
+            </div>
+
+            <!-- Endereço -->
+
+            <div class="form-group mb-3">
+
+                {{ form.endereco.label(class="form-control-label") }}
+
+                {{ form.endereco(class="form-control") }}
+
+            </div>
+
+        </fieldset>
+
+        <div class="form-group">
+
+            {{ form.submit(class="btn btn-success") }}
+
+            <a href="{{ url_for('all_orders') }}"
+               class="btn btn-secondary">
+
+                Voltar
+
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -553,7 +553,7 @@ var i,
 	tokenCache = createCache(),
 	compilerCache = createCache(),
 	nonnativeSelectorCache = createCache(),
-	sortOrder = function( a, b ) {
+	sortorder = function( a, b ) {
 		if ( a === b ) {
 			hasDuplicate = true;
 		}
@@ -1391,7 +1391,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	---------------------------------------------------------------------- */
 
 	// Document order sorting
-	sortOrder = hasCompare ?
+	sortorder = hasCompare ?
 	function( a, b ) {
 
 		// Flag for duplicate removal
@@ -1573,7 +1573,7 @@ Sizzle.uniqueSort = function( results ) {
 	// Unless we *know* we can detect duplicates, assume their presence
 	hasDuplicate = !support.detectDuplicates;
 	sortInput = !support.sortStable && results.slice( 0 );
-	results.sort( sortOrder );
+	results.sort( sortorder );
 
 	if ( hasDuplicate ) {
 		while ( (elem = results[i++]) ) {
@@ -2710,7 +2710,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 // One-time assignments
 
 // Sort stability
-support.sortStable = expando.split("").sort( sortOrder ).join("") === expando;
+support.sortStable = expando.split("").sort( sortorder ).join("") === expando;
 
 // Support: Chrome 14-35+
 // Always assume duplicates if they aren't passed to the comparison function

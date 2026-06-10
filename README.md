@@ -1,6 +1,6 @@
-# Task-Manager-using-Flask
+# order-Manager-using-Flask
 
-A simple web application to store your To-Do Tasks .
+A simple web application to store your To-Do orders .
 
 # Features
 
@@ -17,11 +17,11 @@ Execute the following command to install the required third party libraries:
 
 1. Clone the repository using the following command
     
-    ```git clone https://github.com/AdityaBagad/Task-Manager-using-Flask.git```
+    ```git clone https://github.com/AdityaBagad/order-Manager-using-Flask.git```
 
 2. Install the dependencies using
 
-    ```cd  Task-Manager-using-Flask```
+    ```cd  order-Manager-using-Flask```
     
     ```pip3 install -r requirements.txt```
 
@@ -44,19 +44,19 @@ User cannot access any URL's if they are not logged in
 ![Invalid Access](output/invalid-access.jpg)
 
 ## After Successfull Login
-See all your tasks after successfull login.
+See all your orders after successfull login.
 
 ![After Login](output/after-login.jpg)
 
-## Add Tasks
-Click the **Add Task** link in the side-bar to add tasks
+## Add orders
+Click the **Add order** link in the side-bar to add orders
 
-![Image of Yaktocat](output/add-task.jpg)
+![Image of Yaktocat](output/add-order.jpg)
 
-## View All Tasks
-Click the **View All Task** link in the side-bar to see all tasks. You can **Update** and **Delete** Tasks from this page.
+## View All orders
+Click the **View All order** link in the side-bar to see all orders. You can **Update** and **Delete** orders from this page.
 
-![Image of Yaktocat](output/all-tasks.jpg)
+![Image of Yaktocat](output/all-orders.jpg)
 
 ## Account Settings
 Change your username and password. You can access this by clicking dropdown in the Navbar

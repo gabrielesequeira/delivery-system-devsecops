@@ -1536,7 +1536,7 @@
     }
   }
 
-  function microtaskDebounce(fn) {
+  function microorderDebounce(fn) {
     var called = false;
     return function () {
       if (called) {
@@ -1550,7 +1550,7 @@
     };
   }
 
-  function taskDebounce(fn) {
+  function orderDebounce(fn) {
     var scheduled = false;
     return function () {
       if (!scheduled) {
@@ -1563,7 +1563,7 @@
     };
   }
 
-  var supportsMicroTasks = isBrowser && window.Promise;
+  var supportsMicroorders = isBrowser && window.Promise;
 
   /**
   * Create a debounced version of a method, that's asynchronously deferred
@@ -1574,7 +1574,7 @@
   * @argument {Function} fn
   * @returns {Function}
   */
-  var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce;
+  var debounce = supportsMicroorders ? microorderDebounce : orderDebounce;
 
   /**
    * Check if the given variable is a function
@@ -3067,24 +3067,24 @@
     var placementOpposite = getOppositePlacement(placement);
     var variation = data.placement.split('-')[1] || '';
 
-    var flipOrder = [];
+    var fliporder = [];
 
     switch (options.behavior) {
       case BEHAVIORS.FLIP:
-        flipOrder = [placement, placementOpposite];
+        fliporder = [placement, placementOpposite];
         break;
       case BEHAVIORS.CLOCKWISE:
-        flipOrder = clockwise(placement);
+        fliporder = clockwise(placement);
         break;
       case BEHAVIORS.COUNTERCLOCKWISE:
-        flipOrder = clockwise(placement, true);
+        fliporder = clockwise(placement, true);
         break;
       default:
-        flipOrder = options.behavior;
+        fliporder = options.behavior;
     }
 
-    flipOrder.forEach(function (step, index) {
-      if (placement !== step || flipOrder.length === index + 1) {
+    fliporder.forEach(function (step, index) {
+      if (placement !== step || fliporder.length === index + 1) {
         return data;
       }
 
@@ -3114,7 +3114,7 @@
         data.flipped = true;
 
         if (overlapsRef || overflowsBoundaries) {
-          placement = flipOrder[index + 1];
+          placement = fliporder[index + 1];
         }
 
         if (flippedVariation) {
