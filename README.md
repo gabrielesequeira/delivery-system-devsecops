@@ -1,4 +1,4 @@
-````markdown
+
 # Delivery Manager using Flask
 
 ![Tela Inicial](output/tela.jpg)
@@ -221,4 +221,4 @@ Este projeto foi desenvolvido para aplicação prática dos conceitos de:
 Projeto desenvolvido para fins acadêmicos na disciplina de DevSecOps e Segurança de Aplicações.
 
 ```
-```
+
