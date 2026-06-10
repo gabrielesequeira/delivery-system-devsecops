@@ -1,7 +1,7 @@
 
 # Delivery Manager using Flask
 
-![Tela Inicial](output/tela.jpg)
+![Tela Inicial](imgs/tela.jpg)
 
 Sistema web de gerenciamento de pedidos de delivery desenvolvido com Python, Flask, SQLAlchemy e SQLite como parte de um estudo de caso sobre SDLC, DevOps e DevSecOps.
 
@@ -217,8 +217,6 @@ Este projeto foi desenvolvido para aplicação prática dos conceitos de:
 ## Autor
 
 **Gabriele Sequeira**
-
-Projeto desenvolvido para fins acadêmicos na disciplina de DevSecOps e Segurança de Aplicações.
 
 ```
 
