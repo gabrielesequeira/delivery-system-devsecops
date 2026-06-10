@@ -1,65 +1,224 @@
-# order-Manager-using-Flask
+````markdown
+# Delivery Manager using Flask
 
-A simple web application to store your To-Do orders .
+![Tela Inicial](output/tela.jpg)
 
-# Features
+Sistema web de gerenciamento de pedidos de delivery desenvolvido com Python, Flask, SQLAlchemy e SQLite como parte de um estudo de caso sobre SDLC, DevOps e DevSecOps.
 
-- User Authentication
-- Easy to use and deploy locally.
+## Descrição
 
-# Requirements
+A aplicação permite que usuários autenticados realizem o gerenciamento completo de pedidos de delivery, incluindo criação, consulta, atualização e exclusão de pedidos. O sistema também registra eventos de autenticação e operações realizadas pelos usuários, permitindo auditoria e monitoramento das atividades.
 
-Execute the following command to install the required third party libraries:
+O projeto foi desenvolvido a partir da adaptação de um sistema de gerenciamento de tarefas para um sistema de pedidos de delivery, incorporando práticas de segurança, conteinerização com Docker e preparação para pipelines CI/CD.
 
-```pip3 install -r requirements.txt```
+---
 
-# Usage
+## Funcionalidades
 
-1. Clone the repository using the following command
-    
-    ```git clone https://github.com/AdityaBagad/order-Manager-using-Flask.git```
+### 🔐 Autenticação e Controle de Acesso
 
-2. Install the dependencies using
+- Cadastro de usuários
+- Login e logout
+- Alteração de senha
+- Senhas armazenadas utilizando hash BCrypt
+- Acesso restrito a usuários autenticados
 
-    ```cd  order-Manager-using-Flask```
-    
-    ```pip3 install -r requirements.txt```
+### 📦 Gerenciamento de Pedidos
 
-3. Run this command to start the application
+- Criar pedidos
+- Visualizar pedidos
+- Atualizar pedidos
+- Excluir pedidos
+- Controle de propriedade dos pedidos por usuário
 
-    ```cd todo_project```
+### 📋 Auditoria e Logs
 
-    ```python run.py```
+- Registro de login bem-sucedido
+- Registro de falhas de autenticação
+- Registro de criação de pedidos
+- Registro de atualização de pedidos
+- Registro de exclusão de pedidos
+- Registro de eventos de segurança
 
-# Results
+---
 
-## Registration Page
-Login or Register if you dont have an account
+## Tecnologias Utilizadas
 
-![Registration Page](output/register.jpg)
+### Back-end
 
-## Accessing URL's 
-User cannot access any URL's if they are not logged in
+- Python
+- Flask
+- SQLAlchemy
+- Flask-Login
+- Flask-WTF
+- SQLite
+- BCrypt
 
-![Invalid Access](output/invalid-access.jpg)
+### Front-end
 
-## After Successfull Login
-See all your orders after successfull login.
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
 
-![After Login](output/after-login.jpg)
+### DevOps e Segurança
 
-## Add orders
-Click the **Add order** link in the side-bar to add orders
+- Docker
+- Git
+- GitHub
+- GitHub Actions (CI/CD)
+- Bandit (SAST)
+- OWASP Dependency Check
+- OWASP ZAP (DAST)
 
-![Image of Yaktocat](output/add-order.jpg)
+---
 
-## View All orders
-Click the **View All order** link in the side-bar to see all orders. You can **Update** and **Delete** orders from this page.
+## Estrutura do Projeto
 
-![Image of Yaktocat](output/all-orders.jpg)
+```text
+todo_project/
+│
+├── Dockerfile
+├── requirements.txt
+├── run.py
+├── reset_db.py
+│
+└── todo_project/
+    ├── __init__.py
+    ├── forms.py
+    ├── models.py
+    ├── routes.py
+    ├── static/
+    └── templates/
+````
 
-## Account Settings
-Change your username and password. You can access this by clicking dropdown in the Navbar
+---
 
-![Image of Yaktocat](output/account-settings.jpg)
+## Instalação Local
 
+Clone o repositório:
+
+```bash
+git clone https://github.com/gabrielesequeira/delivery-system-devsecops.git
+```
+
+Acesse a pasta do projeto:
+
+```bash
+cd delivery-system-devsecops/todo_project
+```
+
+Crie um ambiente virtual:
+
+```bash
+python -m venv venv
+```
+
+Ative o ambiente virtual:
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux/Mac
+
+```bash
+source venv/bin/activate
+```
+
+Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+Execute a aplicação:
+
+```bash
+python run.py
+```
+
+A aplicação estará disponível em:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Execução com Docker
+
+Construir a imagem:
+
+```bash
+docker build -t delivery-manager .
+```
+
+Executar o container:
+
+```bash
+docker run -p 5000:5000 delivery-manager
+```
+
+A aplicação estará acessível em:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Segurança Implementada
+
+* Autenticação obrigatória antes de qualquer ação
+* Senhas protegidas com BCrypt
+* Controle de autorização por usuário
+* Registro de eventos em logs
+* Preparação para análise estática (SAST)
+* Preparação para análise dinâmica (DAST)
+* Compatibilidade com práticas DevSecOps
+
+---
+
+## Fluxo Simplificado da Aplicação
+
+```text
+Usuário
+   ↓
+Frontend (HTML/CSS/Bootstrap)
+   ↓
+Flask
+   ↓
+SQLAlchemy
+   ↓
+SQLite
+   ↓
+Logs de Auditoria
+```
+
+---
+
+## Objetivo Acadêmico
+
+Este projeto foi desenvolvido para aplicação prática dos conceitos de:
+
+* Software Development Life Cycle (SDLC)
+* DevOps
+* DevSecOps
+* Docker
+* Integração Contínua (CI)
+* Entrega Contínua (CD)
+* Segurança de Aplicações Web
+
+---
+
+## Autor
+
+**Gabriele Sequeira**
+
+Projeto desenvolvido para fins acadêmicos na disciplina de DevSecOps e Segurança de Aplicações.
+
+```
+```
