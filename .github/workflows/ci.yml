@@ -56,3 +56,26 @@ jobs:
       - name: Verificar sintaxe Python
         run: |
           python -m compileall todo_project
+
+  deploy-stage:
+
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Simular Deploy em Ambiente Stage
+        run: |
+          echo "Aplicação implantada em ambiente Stage"
+
+  dast:
+
+    needs: deploy-stage
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Simular Execução do OWASP ZAP
+        run: |
+          echo "Executando análise DAST"
+          echo "OWASP ZAP executado no ambiente Stage"
