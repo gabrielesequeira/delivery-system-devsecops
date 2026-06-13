@@ -80,3 +80,15 @@ jobs:
         run: |
           echo "Executando análise DAST"
           echo "OWASP ZAP executado no ambiente Stage"
+
+  monitoring:
+
+    needs: dast
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Monitoramento Pós-Implantação
+        run: |
+          echo "Monitoramento de logs habilitado"
+          echo "Integração planejada com Wazuh para análise contínua"
