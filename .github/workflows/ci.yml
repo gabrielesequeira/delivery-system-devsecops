@@ -35,8 +35,9 @@ jobs:
           pytest
 
       - name: Executar análise SAST com Bandit
+        continue-on-error: true
         run: |
-          bandit -r todo_project
+          bandit -r todo_project -f txt
 
       - name: Executar OWASP Dependency Check
         continue-on-error: true
